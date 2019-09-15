@@ -32,7 +32,24 @@ const WelcomeStyles = StyleSheet.create({
       flex:1,
       alignItems:'center',
       justifyContent: 'center'
-  }
+  },
+  background: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'stretch',
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    bottom: 0,
+    right: 0,
+    width: undefined,
+    height: undefined
+    },
+     buttonHighlight: {
+        flex:1,
+          justifyContent: 'center'
+
+    }
 });
 
 export default WelcomeStyles;
