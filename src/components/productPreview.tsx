@@ -1,19 +1,27 @@
 import React from 'react';
 import {Text, View, Image, StyleProp, ImageStyle } from 'react-native';
 import WelcomeStyles from '../styles/welcomeStyles';
-import ProductsInterface from '../interfaces/ProductsInterface';
-import ProductsState from '../states/ProductsState';
-import { Category } from '../enums/category';
 import ProductPreviewInterface from '../interfaces/ProductPreviewInterface';
 import ProductPreviewState from '../states/ProductPreviewState';
 import ProductPreviewStyles from '../styles/productPreviewStyles';
 
 export default class ProductPreview extends React.Component<ProductPreviewInterface,ProductPreviewState> {
 
+
     render() {
+
+      //console.log('http://walidsultan.net/tbstock_images/'+ this.props.category +'/'+ this.props.imagePath );
       return (
         <View style={ProductPreviewStyles.productContainer} >
-          <Text>{this.props.name}</Text>
+          <Image source={{uri:'http://walidsultan.net/tbstock_images/'+ this.props.category +'/'+ this.props.imagePath }}  style={{ width: 175, height: 200 }}></Image>
+          
+          <View style={ProductPreviewStyles.priceAndCode}>
+              <View>
+                <Text>{this.props.name}</Text>
+                <Text style={ProductPreviewStyles.price}>LE{this.props.price} </Text>
+              </View>
+              <Text style={ProductPreviewStyles.code}>{this.props.code} </Text>
+          </View>
         </View>
       );
     }

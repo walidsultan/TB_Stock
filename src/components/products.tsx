@@ -1,11 +1,12 @@
 import React from 'react';
-import {Text, View, Image, StyleProp, ImageStyle } from 'react-native';
+import {Text, View, Image, StyleProp, ImageStyle, ScrollView } from 'react-native';
 import WelcomeStyles from '../styles/welcomeStyles';
 import ProductsInterface from '../interfaces/ProductsInterface';
 import ProductsState from '../states/ProductsState';
 import { Category } from '../enums/category';
 import productPreview from './productPreview';
 import ProductPreview from './productPreview';
+import ProductsStyles from '../styles/productsStyles';
 
 export default class Products extends React.Component<ProductsInterface,ProductsState> {
 
@@ -36,7 +37,12 @@ export default class Products extends React.Component<ProductsInterface,Products
       
 
       if( this.state && this.state.products){
-          products = this.state.products.map((productInfo,i)=>(<ProductPreview  key={i} name={productInfo.Name}></ProductPreview> ) )
+          products = this.state.products.map((productInfo,i)=>(<ProductPreview  key={i} 
+            name={productInfo.Name} 
+            category={this.props.productsCategory} 
+            imagePath={productInfo.ImagePath} 
+            price={productInfo.Price} 
+            code={productInfo.Code} ></ProductPreview> ) )
       }
 
       return products;
@@ -52,7 +58,11 @@ export default class Products extends React.Component<ProductsInterface,Products
           
            <Text>Showing products for {this.getProductsTitle(this.props.productsCategory)}</Text>
 
-           {products}
+          <ScrollView >
+            <View style={ProductsStyles.productsContainer}>
+             {products}
+           </View>
+           </ScrollView>
 
         </View>
       );

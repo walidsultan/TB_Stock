@@ -2,11 +2,24 @@ import { StyleSheet } from 'react-native';
 
 const ProductPreviewStyles = StyleSheet.create({
     productContainer:{
-      flex:1,
-      height:200,
-      width:200,
-      backgroundColor:'#FFFF00',
-      margin:10
+       width:175,
+      marginTop:10,
+      marginBottom:10,
+      marginRight:20,
+    },
+    code:{
+      borderWidth:1,
+      alignSelf: 'flex-end',
+      paddingLeft:5,
+      paddingTop:2,
+      marginRight:5
+    },
+    price:{
+       color:'#1c6311'
+    },
+    priceAndCode:{
+      flexDirection:"row",
+      justifyContent: 'space-between'
     }
  
 });
