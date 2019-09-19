@@ -6,9 +6,14 @@ const ProductsStyles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent:'space-between',
     paddingRight:5
+ },
+ activityLoader:{
+  alignSelf:'center'
+ },
+ activityLoaderContainer:{
+  flex:1,
+  justifyContent:'center'
  }
-
- 
 });
 
 export default ProductsStyles;
