@@ -36,11 +36,9 @@ export default class Products extends React.Component<ProductsInterface,Products
        
         if( this.state && this.state.products){
             products = this.state.products.map((productInfo,i)=>(<ProductPreview  key={i} 
-              name={productInfo.Name} 
-              category={this.props.productsCategory} 
-              imagePath={productInfo.ImagePath} 
-              price={productInfo.Price} 
-              code={productInfo.Code} ></ProductPreview> ) )
+              product={productInfo}
+              onChangeView= {(e,w)=>this.props.onChangeView(e,w)}
+              ></ProductPreview> ) )
         }
       return products;
     }

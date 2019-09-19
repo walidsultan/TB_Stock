@@ -1,9 +1,11 @@
 import React from 'react';
-import {Text, View, Image, StyleProp, ImageStyle, ActivityIndicator } from 'react-native';
+import {Text, View, Image, StyleProp, ImageStyle, ActivityIndicator, TouchableHighlight, Alert } from 'react-native';
 import WelcomeStyles from '../styles/welcomeStyles';
 import ProductPreviewInterface from '../interfaces/ProductPreviewInterface';
 import ProductPreviewState from '../states/ProductPreviewState';
 import ProductPreviewStyles from '../styles/productPreviewStyles';
+import { PageView } from '../enums/pageView';
+import ProductContract from '../contracts/productContract';
 
 export default class ProductPreview extends React.Component<ProductPreviewInterface,ProductPreviewState> {
 
@@ -17,17 +19,24 @@ export default class ProductPreview extends React.Component<ProductPreviewInterf
 
       return (
         <View style={ProductPreviewStyles.productContainer} >
-          <Image  source={{uri:'http://walidsultan.net/tbstock_images/'+ this.props.category +'/'+ this.props.imagePath}}
-                     style={{ width: 175, height: 200 }}  ></Image>
+           <TouchableHighlight onPress={() => { this.onProductClick(); }} style={WelcomeStyles.buttonHighlight} underlayColor="#ddd">
+            <Image  source={{uri:'http://walidsultan.net/tbstock_images/'+ this.props.product.CategoryId +'/'+ this.props.product.ImagePath}}
+                      style={{ width: 175, height: 200 }}  ></Image>
+          </TouchableHighlight>
           
           <View style={ProductPreviewStyles.priceAndCode}>
               <View>
-                <Text>{this.props.name}</Text>
-                <Text style={ProductPreviewStyles.price}>LE{this.props.price} </Text>
+                <Text>{this.props.product.Name}</Text>
+                <Text style={ProductPreviewStyles.price}>LE{this.props.product.Price} </Text>
               </View>
-              <Text style={ProductPreviewStyles.code}>{this.props.code} </Text>
+              <Text style={ProductPreviewStyles.code}>{this.props.product.Code} </Text>
           </View>
         </View>
       );
+    }
+
+    onProductClick(){
+       let product= new ProductContract()
+      this.props.onChangeView(PageView.ProductDetails,this.props.product)
     }
   }
