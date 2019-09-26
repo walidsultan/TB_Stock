@@ -11,7 +11,6 @@ import WelcomeStyles from '../styles/welcomeStyles';
 import ProductContract from '../contracts/productContract';
 import ProductDetails from './productDetails';
 
-const soundObject = new Expo.Audio.Sound();
 
 export default class Router extends React.Component<RouterInterface, RouterState> {
 
