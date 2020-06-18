@@ -9,10 +9,8 @@ const ProductPreviewStyles = StyleSheet.create({
     },
     code:{
       borderWidth:1,
-      alignSelf: 'flex-end',
-      paddingLeft:5,
-      paddingTop:2,
-      marginRight:5
+      alignSelf: 'flex-start',
+      paddingLeft:5
     },
     price:{
        color:'#1c6311'

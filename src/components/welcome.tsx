@@ -34,6 +34,11 @@ export default class Welcome extends React.Component <WelcomeInterface, WelcomeS
                         <Text style={WelcomeStyles.buttonText}>Kids</Text>
                     </TouchableHighlight>
                 </View>
+                 <View style={WelcomeStyles.button}>
+                    <TouchableHighlight onPress={() => { this.onCategoryClick(Category.Accessories); }} style={WelcomeStyles.buttonHighlight} underlayColor="#ddd">
+                        <Text style={WelcomeStyles.buttonText}>Accessories</Text>
+                    </TouchableHighlight>
+                </View>
             </View>
         </View>
       );
