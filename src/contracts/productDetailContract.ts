@@ -1,4 +1,4 @@
-import { Category } from "../enums/category";
+import { Department } from "../enums/department";
 
 export default class ProductDetailContract  {
     Id:number=0;

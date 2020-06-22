@@ -20,16 +20,13 @@ export default class ProductPreview extends React.Component<ProductPreviewInterf
       return (
         <View style={ProductPreviewStyles.productContainer} >
            <TouchableHighlight onPress={() => { this.onProductClick(); }} style={WelcomeStyles.buttonHighlight} underlayColor="#ddd">
-            <Image  source={{uri:'http://walidsultan.net/tbstock_images/'+ this.props.product.CategoryId +'/'+this.props.product.Code +'/'+ this.props.product.ImagePath}}
+            <Image  source={{uri:'http://walidsultan.net/tbstock_images/'+ this.props.product.DepartmentId +'/'+this.props.product.Code +'/'+ this.props.product.ImagePath}}
                       style={{ width: 175, height: 200 }}  ></Image>
           </TouchableHighlight>
           
           <View style={ProductPreviewStyles.priceAndCode}>
               <View>
                 <Text>{this.props.product.Name}</Text>
-                <View>
-                  <Text style={ProductPreviewStyles.code}>{this.props.product.Code} </Text>
-                </View>
                 <View>
                 <Text style={ProductPreviewStyles.price}>LE{this.props.product.Price} </Text>
                 </View>

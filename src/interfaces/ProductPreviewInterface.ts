@@ -1,10 +1,10 @@
-import { Category } from "../enums/category";
+import { Department } from "../enums/department";
 import { PageView } from "../enums/pageView";
 import ProductContract from "../contracts/productContract";
 
 export default interface ProductPreviewInterface {
     // name:string;
-    // category:Category;
+    // department:Department;
     // imagePath:string;
     // price:number;
     // code:string;

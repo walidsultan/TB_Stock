@@ -3,7 +3,7 @@ import {Text, View, Image, StyleProp, ImageStyle, ScrollView, ActivityIndicator 
 import WelcomeStyles from '../styles/welcomeStyles';
 import ProductsInterface from '../interfaces/ProductsInterface';
 import ProductsState from '../states/ProductsState';
-import { Category } from '../enums/category';
+import { Department } from '../enums/department';
 import productPreview from './productPreview';
 import ProductPreview from './productPreview';
 import ProductsStyles from '../styles/productsStyles';
@@ -19,13 +19,13 @@ export default class Products extends React.Component<ProductsInterface,Products
       }
 
 
-    getProductsTitle(category:Category){
-      switch(category){
-        case Category.Men:
+    getProductsTitle(department:Department){
+      switch(department){
+        case Department.Men:
           return "Men";
-        case Category.Women:
+        case Department.Ladies:
           return "Women";
-        case Category.Kids:
+        case Department.Kids:
           return "Kids";
       }
     }
@@ -65,7 +65,7 @@ export default class Products extends React.Component<ProductsInterface,Products
       return (
         <View  style={WelcomeStyles.body}>
           
-           <Text>Showing products for {this.getProductsTitle(this.props.productsCategory)}</Text>
+           <Text>Showing products for {this.getProductsTitle(this.props.productsDepartment)}</Text>
 
           {productView}
 
@@ -76,7 +76,7 @@ export default class Products extends React.Component<ProductsInterface,Products
 
       async loadProducts() {
         try {
-            const response = await fetch('http://walidsultan.net/TBStockApi/api/Products/Category/' +this.props.productsCategory, {
+            const response = await fetch('http://walidsultan.net/TBStockApi/api/Products/Department/' +this.props.productsDepartment, {
                 method: 'GET'
             });
             const products = await response.json();

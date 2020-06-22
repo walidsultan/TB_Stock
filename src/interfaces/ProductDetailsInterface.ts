@@ -1,4 +1,4 @@
-import { Category } from "../enums/category";
+import { Department } from "../enums/department";
 import ProductContract from "../contracts/productContract";
 
 export default interface ProductDetailsInterface {

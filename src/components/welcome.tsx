@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, View, Image, StyleProp, ImageStyle, TouchableHighlight, Alert } from 'react-native';
 import WelcomeStyles from '../styles/welcomeStyles';
-import { Category } from '../enums/category';
+import { Department } from '../enums/department';
 import WelcomeInterface from '../interfaces/WelcomeInterface';
 import WelcomeState from '../states/WelcomeState';
 import { PageView } from '../enums/pageView';
@@ -9,8 +9,8 @@ import { PageView } from '../enums/pageView';
 export default class Welcome extends React.Component <WelcomeInterface, WelcomeState>{
 
 
-    onCategoryClick(category:Category){
-       this.props.onChangeView(PageView.Products,category);
+    onDepartmentClick(department:Department){
+       this.props.onChangeView(PageView.Products,department);
     }
 
     render() {
@@ -20,22 +20,22 @@ export default class Welcome extends React.Component <WelcomeInterface, WelcomeS
            <Text style={WelcomeStyles.title}>T&B Stock</Text>
            <View style={WelcomeStyles.buttonsContainer}>
                 <View style={WelcomeStyles.button}>
-                    <TouchableHighlight onPress={() => { this.onCategoryClick(Category.Men); }} style={WelcomeStyles.buttonHighlight} underlayColor="#ddd">
+                    <TouchableHighlight onPress={() => { this.onDepartmentClick(Department.Men); }} style={WelcomeStyles.buttonHighlight} underlayColor="#ddd">
                         <Text style={WelcomeStyles.buttonText}>Men</Text>
                     </TouchableHighlight>
                 </View>
                 <View style={WelcomeStyles.button}>
-                    <TouchableHighlight onPress={() => { this.onCategoryClick(Category.Women); }} style={WelcomeStyles.buttonHighlight} underlayColor="#ddd">
-                        <Text style={WelcomeStyles.buttonText}>Women</Text>
+                    <TouchableHighlight onPress={() => { this.onDepartmentClick(Department.Ladies); }} style={WelcomeStyles.buttonHighlight} underlayColor="#ddd">
+                        <Text style={WelcomeStyles.buttonText}>Ladies</Text>
                     </TouchableHighlight>
                 </View>
                 <View style={WelcomeStyles.button}>
-                    <TouchableHighlight onPress={() => { this.onCategoryClick(Category.Kids); }} style={WelcomeStyles.buttonHighlight} underlayColor="#ddd">
+                    <TouchableHighlight onPress={() => { this.onDepartmentClick(Department.Kids); }} style={WelcomeStyles.buttonHighlight} underlayColor="#ddd">
                         <Text style={WelcomeStyles.buttonText}>Kids</Text>
                     </TouchableHighlight>
                 </View>
                  <View style={WelcomeStyles.button}>
-                    <TouchableHighlight onPress={() => { this.onCategoryClick(Category.Accessories); }} style={WelcomeStyles.buttonHighlight} underlayColor="#ddd">
+                    <TouchableHighlight onPress={() => { this.onDepartmentClick(Department.MensAccessories); }} style={WelcomeStyles.buttonHighlight} underlayColor="#ddd">
                         <Text style={WelcomeStyles.buttonText}>Accessories</Text>
                     </TouchableHighlight>
                 </View>

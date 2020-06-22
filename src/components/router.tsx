@@ -6,7 +6,7 @@ import RouterInterface from '../interfaces/RouterInterface';
 import { PageView } from '../enums/pageView';
 import Welcome from './welcome';
 import Products from './products';
-import { Category } from '../enums/category';
+import { Department } from '../enums/department';
 import WelcomeStyles from '../styles/welcomeStyles';
 import ProductContract from '../contracts/productContract';
 import ProductDetails from './productDetails';
@@ -37,7 +37,7 @@ export default class Router extends React.Component<RouterInterface, RouterState
             case PageView.Welcome:
                 return <Welcome onChangeView={(e,w)=>this.setProductsView(e,w)} ></Welcome>;
             case PageView.Products:
-                    return <Products  onChangeView={(e,w)=>this.setProductDetailsView(e,w)} productsCategory={this.state.category}></Products>;
+                    return <Products  onChangeView={(e,w)=>this.setProductDetailsView(e,w)} productsDepartment={this.state.department}></Products>;
             case PageView.ProductDetails:
                 return <ProductDetails  product={this.state.productDetails} ></ProductDetails>;
             
@@ -52,8 +52,8 @@ export default class Router extends React.Component<RouterInterface, RouterState
         this.setState(newState);
     }
 
-    setProductsView(view: PageView,category:Category) {
-        let newState = Object.assign(this.state, { pageView: view,category: category  });
+    setProductsView(view: PageView,department:Department) {
+        let newState = Object.assign(this.state, { pageView: view,department: department  });
         this.setState(newState);
     }
 
@@ -77,7 +77,7 @@ export default class Router extends React.Component<RouterInterface, RouterState
                 this.setView(PageView.Welcome);
                 break;
             case PageView.ProductDetails:
-                this.setProductsView(PageView.Products,this.state.category);
+                this.setProductsView(PageView.Products,this.state.department);
                 break;    
             default:
              this.setView(PageView.Welcome);

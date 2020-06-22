@@ -28,7 +28,7 @@ export default class ProductDetails extends React.Component<ProductDetailsInterf
 
       return (
         <View style={ProductDetailsStyles.container} >
-         <Image  source={{uri:'http://walidsultan.net/tbstock_images/'+ this.props.product.CategoryId +'/'+ this.props.product.Id +'/'+ this.state.displayedImagePath}}
+         <Image  source={{uri:'http://walidsultan.net/tbstock_images/'+ this.props.product.DepartmentId +'/'+ this.props.product.Id +'/'+ this.state.displayedImagePath}}
                       style={{ width: imageWidth, height: imageHeight }}  ></Image>
 
           <View style={ProductDetailsStyles.priceAndCode}>
@@ -72,7 +72,7 @@ export default class ProductDetails extends React.Component<ProductDetailsInterf
 
     private getThumbnailView(i: number, productDetail:ProductDetailContract): JSX.Element {
       return <TouchableHighlight onPress={() => { this.onThumbnailClick(productDetail.ImagePath); }}  underlayColor="#ddd" key={'th'+i} style={ProductDetailsStyles.thumbnailHighlight}>
-                <Image key={i} source={{ uri: 'http://walidsultan.net/tbstock_images/' + this.props.product.CategoryId + '/' + this.props.product.Id + '/' + productDetail.ImagePath }} style={ProductDetailsStyles.thumbnailImage} ></Image>
+                <Image key={i} source={{ uri: 'http://walidsultan.net/tbstock_images/' + this.props.product.DepartmentId + '/' + this.props.product.Id + '/' + productDetail.ImagePath }} style={ProductDetailsStyles.thumbnailImage} ></Image>
              </TouchableHighlight>
     }
 
